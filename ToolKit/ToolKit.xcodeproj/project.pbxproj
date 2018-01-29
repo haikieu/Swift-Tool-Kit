@@ -11,7 +11,7 @@
 		35ED0066201E8DD6007A941C /* ToolKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED0065201E8DD6007A941C /* ToolKitTests.swift */; };
 		35ED0068201E8DD6007A941C /* ToolKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 35ED005A201E8DD6007A941C /* ToolKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35ED00AB201E8EC6007A941C /* SecuredUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00AA201E8EC6007A941C /* SecuredUserDefaults.swift */; };
-		35ED00AD201E8F04007A941C /* UniversalNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00AC201E8F04007A941C /* UniversalNotificationCenter.swift */; };
+		35ED00AD201E8F04007A941C /* MonitoredNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00AC201E8F04007A941C /* MonitoredNotificationCenter.swift */; };
 		35ED00AF201E8F3B007A941C /* CoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00AE201E8F3B007A941C /* CoreService.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +33,7 @@
 		35ED0065201E8DD6007A941C /* ToolKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolKitTests.swift; sourceTree = "<group>"; };
 		35ED0067201E8DD6007A941C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35ED00AA201E8EC6007A941C /* SecuredUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecuredUserDefaults.swift; sourceTree = "<group>"; };
-		35ED00AC201E8F04007A941C /* UniversalNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalNotificationCenter.swift; sourceTree = "<group>"; };
+		35ED00AC201E8F04007A941C /* MonitoredNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoredNotificationCenter.swift; sourceTree = "<group>"; };
 		35ED00AE201E8F3B007A941C /* CoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,7 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				35ED00AA201E8EC6007A941C /* SecuredUserDefaults.swift */,
-				35ED00AC201E8F04007A941C /* UniversalNotificationCenter.swift */,
+				35ED00AC201E8F04007A941C /* MonitoredNotificationCenter.swift */,
 				35ED00AE201E8F3B007A941C /* CoreService.swift */,
 			);
 			path = Classes;
@@ -215,7 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35ED00AB201E8EC6007A941C /* SecuredUserDefaults.swift in Sources */,
-				35ED00AD201E8F04007A941C /* UniversalNotificationCenter.swift in Sources */,
+				35ED00AD201E8F04007A941C /* MonitoredNotificationCenter.swift in Sources */,
 				35ED00AF201E8F3B007A941C /* CoreService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
