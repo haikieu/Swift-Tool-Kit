@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "container:TookKitDemo/TookKitDemo.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ToolKit/ToolKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ToolKitUI/ToolKitUI.xcodeproj">
+   </FileRef>
+</Workspace>
