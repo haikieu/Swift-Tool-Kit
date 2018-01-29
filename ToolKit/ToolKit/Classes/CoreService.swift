@@ -8,7 +8,8 @@
 
 import UIKit
 
-
+///RequestId value must be unique
+public typealias RequestId = TimeInterval
 public typealias RequestCallback = ((_ success: Bool)->Void)
 fileprivate let defaultMaxConcurrent = 5
 
@@ -26,17 +27,54 @@ open class CoreService {
     }()
     
     private init() {}
+    deinit {
+        queue.cancelAllOperations()
+    }
     private static func getPreferredInstance() -> CoreService {
         guard let preferredClass = self.preferredClass else { return CoreService() }
         return (class_createInstance(preferredClass, class_getInstanceSize(preferredClass)) as? CoreService) ?? CoreService()
     }
     
-    open func async(_ url : URL, callback: RequestCallback? = nil) {
+    open func async(_ url : URL, callback: RequestCallback? = nil) -> RequestId {
         let operation = ServiceOperation(service: self, callback: callback)
         queue.addOperation(operation)
+        return operation.timestamp
     }
     
-    open func generateTimeStamp() -> TimeInterval {
+    open func get(_ url : URL, callback: RequestCallback? = nil) -> RequestId {
+        //TODO: need to implement
+        return async(url, callback: callback)
+    }
+    
+    open func post(_ url : URL, callback: RequestCallback? = nil) -> RequestId {
+        //TODO: need to implement
+        return async(url, callback: callback)
+    }
+    
+    open func update(_ url : URL, callback: RequestCallback? = nil) -> RequestId {
+        //TODO: need to implement
+        return async(url, callback: callback)
+    }
+    
+    open func head(_ url : URL, callback: RequestCallback? = nil) -> RequestId {
+        //TODO: need to implement
+        return async(url, callback: callback)
+    }
+    
+    open func delete(_ url : URL, callback: RequestCallback? = nil) -> RequestId {
+        //TODO: need to implement
+        return async(url, callback: callback)
+    }
+    
+    ///If return nil, it means the requestId with its operation cannot be found
+    ///If return true, it means cancelling is success
+    ///If return false, it means canncelling is failure, maybe because the request has done
+    public func cancel(_ requestId: RequestId) -> Bool? {
+        //TODO: need to implement
+        return false
+    }
+    
+    fileprivate func generateTimeStamp() -> RequestId {
         //Need to synchronize the method, to avoid generating timeStamps with same value
         //TODO: cleanup objc_sync_enter & objc_sync_exit
         objc_sync_enter(self)
@@ -57,13 +95,17 @@ final class ServiceOperationQueue : OperationQueue {
     override func addOperations(_ ops: [Operation], waitUntilFinished wait: Bool) {
         super.addOperations(ops, waitUntilFinished: wait)
     }
+    
+    deinit {
+        self.cancelAllOperations()
+    }
 }
 
 fileprivate let defaultRetries = 1
 open class ServiceOperation : Operation {
     
     fileprivate private(set) weak var service : CoreService?
-    fileprivate let timestamp : TimeInterval
+    fileprivate let timestamp : RequestId
     private var beginTime : TimeInterval!
     private var endTime : TimeInterval!
     fileprivate var executionTime : TimeInterval {
