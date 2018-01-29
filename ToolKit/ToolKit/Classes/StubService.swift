@@ -13,7 +13,7 @@ public typealias RequestId = TimeInterval
 public typealias RequestCallback = ((_ success: Bool)->Void)
 fileprivate let defaultMaxConcurrent = 5
 
-open class CoreService {
+open class StubService {
     
     ///If you like to get a shared instance of a subclass of CoreService, then set the preferredClass
     public static var preferredClass : AnyClass?
@@ -30,13 +30,13 @@ open class CoreService {
     deinit {
         queue.cancelAllOperations()
     }
-    private static func getPreferredInstance() -> CoreService {
-        guard let preferredClass = self.preferredClass else { return CoreService() }
-        return (class_createInstance(preferredClass, class_getInstanceSize(preferredClass)) as? CoreService) ?? CoreService()
+    private static func getPreferredInstance() -> StubService {
+        guard let preferredClass = self.preferredClass else { return StubService() }
+        return (class_createInstance(preferredClass, class_getInstanceSize(preferredClass)) as? StubService) ?? StubService()
     }
     
     open func async(_ url : URL, callback: RequestCallback? = nil) -> RequestId {
-        let operation = ServiceOperation(service: self, callback: callback)
+        let operation = StubOperation(service: self, callback: callback)
         queue.addOperation(operation)
         return operation.timestamp
     }
@@ -102,12 +102,12 @@ final class ServiceOperationQueue : OperationQueue {
 }
 
 fileprivate let defaultRetries = 1
-open class ServiceOperation : Operation {
+open class StubOperation : Operation {
     
-    fileprivate private(set) weak var service : CoreService?
+    fileprivate private(set) weak var service : StubService?
     fileprivate let timestamp : RequestId
-    private var beginTime : TimeInterval!
-    private var endTime : TimeInterval!
+    fileprivate var beginTime : TimeInterval!
+    fileprivate var endTime : TimeInterval!
     fileprivate var executionTime : TimeInterval {
         guard isFinished, beginTime != nil, endTime != nil else {
             return -1
@@ -128,7 +128,7 @@ open class ServiceOperation : Operation {
             }
         }
     }
-    private var _isCancelled : Bool = false {
+    fileprivate var _isCancelled : Bool = false {
         didSet {
             callback = nil
         }
@@ -143,12 +143,11 @@ open class ServiceOperation : Operation {
     }
     
     open override func start() {
-        guard _isCancelled == false else { return }
+        fatalError("Please implement this in subclass of CoreOperation")
     }
     
     open override func main() {
-        guard _isCancelled == false else { return }
-        beginTime = Date().timeIntervalSince1970
+        fatalError("Please implement this in subclass of CoreOperation")
     }
     
     @available(*, unavailable, message: "Please use init(callback:) instead")
@@ -156,7 +155,7 @@ open class ServiceOperation : Operation {
         fatalError("Do not use this method")
     }
     
-    public init(service: CoreService, callback: RequestCallback?) {
+    public init(service: StubService, callback: RequestCallback?) {
         self.timestamp = service.generateTimeStamp()
         self.service = service
         self.callback = callback
@@ -164,5 +163,16 @@ open class ServiceOperation : Operation {
     
     deinit {
         self.callback = nil
+    }
+}
+
+open class URLOperation : StubOperation {
+    open override func start() {
+        guard _isCancelled == false else { return }
+    }
+    
+    open override func main() {
+        guard _isCancelled == false else { return }
+        beginTime = Date().timeIntervalSince1970
     }
 }
