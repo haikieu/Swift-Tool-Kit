@@ -175,12 +175,12 @@
 		35ED00B4201E903D007A941C /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				35ED028D202013F2007A941C /* Files */,
 				35ED00B5201E9060007A941C /* DashBoardViewController.swift */,
 				35ED00B7201E9083007A941C /* LoggingViewController.swift */,
-				35ED00B9201E909C007A941C /* ServiceViewController.swift */,
-				35ED00BB201E90B0007A941C /* UserDefaultViewController.swift */,
-				35ED00BD201E90D1007A941C /* NotificationCenterViewController.swift */,
+				35ED02A720202038007A941C /* UserDefaults */,
+				35ED02A62020202E007A941C /* Service */,
+				35ED02A320202013007A941C /* NotificationCenter */,
+				35ED028D202013F2007A941C /* Files */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -199,6 +199,30 @@
 				35ED02A020201E16007A941C /* FileActionViewController.swift */,
 			);
 			path = Files;
+			sourceTree = "<group>";
+		};
+		35ED02A320202013007A941C /* NotificationCenter */ = {
+			isa = PBXGroup;
+			children = (
+				35ED00BD201E90D1007A941C /* NotificationCenterViewController.swift */,
+			);
+			path = NotificationCenter;
+			sourceTree = "<group>";
+		};
+		35ED02A62020202E007A941C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				35ED00B9201E909C007A941C /* ServiceViewController.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		35ED02A720202038007A941C /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				35ED00BB201E90B0007A941C /* UserDefaultViewController.swift */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
