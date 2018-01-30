@@ -18,6 +18,15 @@
 		35ED00BC201E90B0007A941C /* UserDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00BB201E90B0007A941C /* UserDefaultViewController.swift */; };
 		35ED00BE201E90D1007A941C /* NotificationCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00BD201E90D1007A941C /* NotificationCenterViewController.swift */; };
 		35ED00C0201E9112007A941C /* ToolKitWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00BF201E9112007A941C /* ToolKitWindow.swift */; };
+		35ED02912020141C007A941C /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED02902020141C007A941C /* FilesViewController.swift */; };
+		35ED029420201457007A941C /* Files.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35ED029320201457007A941C /* Files.xcassets */; };
+		35ED029520201516007A941C /* FilesScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35ED029220201428007A941C /* FilesScreen.storyboard */; };
+		35ED029720201BA8007A941C /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED029620201BA8007A941C /* TextViewController.swift */; };
+		35ED029920201BBE007A941C /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED029820201BBE007A941C /* ImageViewController.swift */; };
+		35ED029B20201BD3007A941C /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED029A20201BD3007A941C /* AudioViewController.swift */; };
+		35ED029D20201BE2007A941C /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED029C20201BE2007A941C /* VideoViewController.swift */; };
+		35ED029F20201CE6007A941C /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED029E20201CE6007A941C /* SummaryViewController.swift */; };
+		35ED02A120201E16007A941C /* FileActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED02A020201E16007A941C /* FileActionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +68,15 @@
 		35ED00BB201E90B0007A941C /* UserDefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultViewController.swift; sourceTree = "<group>"; };
 		35ED00BD201E90D1007A941C /* NotificationCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterViewController.swift; sourceTree = "<group>"; };
 		35ED00BF201E9112007A941C /* ToolKitWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolKitWindow.swift; sourceTree = "<group>"; };
+		35ED02902020141C007A941C /* FilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
+		35ED029220201428007A941C /* FilesScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilesScreen.storyboard; sourceTree = "<group>"; };
+		35ED029320201457007A941C /* Files.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Files.xcassets; sourceTree = "<group>"; };
+		35ED029620201BA8007A941C /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		35ED029820201BBE007A941C /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		35ED029A20201BD3007A941C /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
+		35ED029C20201BE2007A941C /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		35ED029E20201CE6007A941C /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		35ED02A020201E16007A941C /* FileActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileActionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +175,7 @@
 		35ED00B4201E903D007A941C /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				35ED028D202013F2007A941C /* Files */,
 				35ED00B5201E9060007A941C /* DashBoardViewController.swift */,
 				35ED00B7201E9083007A941C /* LoggingViewController.swift */,
 				35ED00B9201E909C007A941C /* ServiceViewController.swift */,
@@ -164,6 +183,22 @@
 				35ED00BD201E90D1007A941C /* NotificationCenterViewController.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		35ED028D202013F2007A941C /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				35ED029320201457007A941C /* Files.xcassets */,
+				35ED029220201428007A941C /* FilesScreen.storyboard */,
+				35ED02902020141C007A941C /* FilesViewController.swift */,
+				35ED029620201BA8007A941C /* TextViewController.swift */,
+				35ED029820201BBE007A941C /* ImageViewController.swift */,
+				35ED029A20201BD3007A941C /* AudioViewController.swift */,
+				35ED029C20201BE2007A941C /* VideoViewController.swift */,
+				35ED029E20201CE6007A941C /* SummaryViewController.swift */,
+				35ED02A020201E16007A941C /* FileActionViewController.swift */,
+			);
+			path = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +318,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35ED029420201457007A941C /* Files.xcassets in Resources */,
+				35ED029520201516007A941C /* FilesScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,10 +339,17 @@
 			files = (
 				35ED00B8201E9083007A941C /* LoggingViewController.swift in Sources */,
 				35ED00B2201E9023007A941C /* ToolKitViewController.swift in Sources */,
+				35ED02A120201E16007A941C /* FileActionViewController.swift in Sources */,
+				35ED029D20201BE2007A941C /* VideoViewController.swift in Sources */,
+				35ED029920201BBE007A941C /* ImageViewController.swift in Sources */,
 				35ED00BA201E909C007A941C /* ServiceViewController.swift in Sources */,
 				35ED00BE201E90D1007A941C /* NotificationCenterViewController.swift in Sources */,
+				35ED029F20201CE6007A941C /* SummaryViewController.swift in Sources */,
 				35ED00C0201E9112007A941C /* ToolKitWindow.swift in Sources */,
+				35ED029720201BA8007A941C /* TextViewController.swift in Sources */,
 				35ED00B6201E9060007A941C /* DashBoardViewController.swift in Sources */,
+				35ED029B20201BD3007A941C /* AudioViewController.swift in Sources */,
+				35ED02912020141C007A941C /* FilesViewController.swift in Sources */,
 				35ED00BC201E90B0007A941C /* UserDefaultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,7 +499,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ToolKitUI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hk.lib.ToolKitUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -479,7 +523,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ToolKitUI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hk.lib.ToolKitUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
