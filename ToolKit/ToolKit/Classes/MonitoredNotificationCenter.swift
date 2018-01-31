@@ -55,7 +55,7 @@ public extension NotificationCenter {
 
 fileprivate let NotificationNameUnAvailable = "NotificationNameUnAvailable"
 
-public final class MonitoredNotificationCenter: NotificationCenter {
+private final class MonitoredNotificationCenter: NotificationCenter {
     
     
     fileprivate var onInitializedUniversalNotificationCenter : (()->Void)?

@@ -7,15 +7,24 @@
 //
 
 import UIKit
+import ToolKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    let userDefault = UserDefaults.standard
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UserDefaults.standard.startup()
+        UserDefaults.standard.onSynchorized { (_) in
+            print("synchronize")
+        }
+//        userDefault.startup()
+//        userDefault.onSynchorized(callback: block)
+//        userDefault.onReadTheKeyValue(callback: block1)
         return true
     }
 
