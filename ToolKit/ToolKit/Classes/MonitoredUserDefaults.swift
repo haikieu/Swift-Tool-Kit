@@ -14,9 +14,9 @@ public typealias DecryptionValue = Any
 
 public extension UserDefaults {
     
-    fileprivate var monitor : UFMonitor? {
+    fileprivate var monitor : DefaultUFMonitor? {
         #if DEBUG
-        return UFMonitor.shared
+        return DefaultUFMonitor.shared
         #else
         return nil
         #endif
@@ -233,7 +233,9 @@ fileprivate extension UFMonitorInterface {
     }
 }
 
-fileprivate class UFMonitor : UFMonitorInterface {
+//MARK: - DefaultUFMonitor
+
+fileprivate class DefaultUFMonitor : UFMonitorInterface {
     var isStartup: Bool = false
     
     var onInitializedUserDefaults: (([String]) -> Void)?
@@ -251,8 +253,8 @@ fileprivate class UFMonitor : UFMonitorInterface {
     var onDebugWritingKey: ((String) -> Bool)?
     
     #if DEBUG
-    static let shared = UFMonitor()
+    static let shared = DefaultUFMonitor()
     #else
-    static let shared : UFMonitor? = nil
+    static let shared : DefaultUFMonitor? = nil
     #endif
 }
