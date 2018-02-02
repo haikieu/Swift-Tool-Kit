@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Wyf-Ur-FFj">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Console-->
+        <scene sceneID="knK-IZ-MgU">
+            <objects>
+                <viewController title="Console" id="Wyf-Ur-FFj" customClass="ConsoleViewController" customModule="ToolKitMacApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="arf-ua-NHG">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0k-PY-g9D">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <clipView key="contentView" id="6x5-6i-I57">
+                                    <rect key="frame" x="1" y="1" width="448" height="298"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="BRz-Kr-vmE">
+                                            <rect key="frame" x="0.0" y="0.0" width="448" height="298"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="448" height="298"/>
+                                            <size key="maxSize" width="463" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="UWp-r6-b11">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="JzF-Ow-KWs">
+                                    <rect key="frame" x="433" y="1" width="16" height="298"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="l0k-PY-g9D" firstAttribute="leading" secondItem="arf-ua-NHG" secondAttribute="leading" id="0FU-9s-V6Q"/>
+                            <constraint firstAttribute="trailing" secondItem="l0k-PY-g9D" secondAttribute="trailing" id="0uy-xG-ndb"/>
+                            <constraint firstAttribute="trailing" secondItem="l0k-PY-g9D" secondAttribute="trailing" id="3P0-bi-HpT"/>
+                            <constraint firstAttribute="bottom" secondItem="l0k-PY-g9D" secondAttribute="bottom" id="A35-8p-hAY"/>
+                            <constraint firstItem="l0k-PY-g9D" firstAttribute="leading" secondItem="arf-ua-NHG" secondAttribute="leading" id="A5S-cD-ucW"/>
+                            <constraint firstItem="l0k-PY-g9D" firstAttribute="top" secondItem="arf-ua-NHG" secondAttribute="top" id="Acf-WV-Gdm"/>
+                            <constraint firstItem="l0k-PY-g9D" firstAttribute="top" secondItem="arf-ua-NHG" secondAttribute="top" id="XUe-Pq-3kw"/>
+                            <constraint firstAttribute="bottom" secondItem="l0k-PY-g9D" secondAttribute="bottom" id="vJ8-cE-O9L"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="C4O-9M-rZs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="251" y="131"/>
+        </scene>
+    </scenes>
+</document>

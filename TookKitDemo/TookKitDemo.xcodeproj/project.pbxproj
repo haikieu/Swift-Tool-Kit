@@ -18,6 +18,8 @@
 		351CCBBA2023F62B00423531 /* NotificationCenterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351CCBB92023F62B00423531 /* NotificationCenterViewController.storyboard */; };
 		351CCBBD2023F6DA00423531 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CCBBC2023F6DA00423531 /* FilesViewController.swift */; };
 		351CCBBF2023F6E200423531 /* FilesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351CCBBE2023F6E200423531 /* FilesViewController.storyboard */; };
+		355F35422023FE1B000B3B23 /* ConsoleViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 355F35412023FE1B000B3B23 /* ConsoleViewController.storyboard */; };
+		355F35442023FE31000B3B23 /* ConsoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355F35432023FE31000B3B23 /* ConsoleViewController.swift */; };
 		35ED002E201E8D98007A941C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED002D201E8D98007A941C /* AppDelegate.swift */; };
 		35ED0030201E8D98007A941C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED002F201E8D98007A941C /* ViewController.swift */; };
 		35ED0033201E8D98007A941C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35ED0031201E8D98007A941C /* Main.storyboard */; };
@@ -79,6 +81,8 @@
 		351CCBB92023F62B00423531 /* NotificationCenterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationCenterViewController.storyboard; sourceTree = "<group>"; };
 		351CCBBC2023F6DA00423531 /* FilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
 		351CCBBE2023F6E200423531 /* FilesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilesViewController.storyboard; sourceTree = "<group>"; };
+		355F35412023FE1B000B3B23 /* ConsoleViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConsoleViewController.storyboard; sourceTree = "<group>"; };
+		355F35432023FE31000B3B23 /* ConsoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleViewController.swift; sourceTree = "<group>"; };
 		35ED002A201E8D98007A941C /* TookKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TookKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35ED002D201E8D98007A941C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35ED002F201E8D98007A941C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 		351CCBAE2023F52E00423531 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				355F35402023FE06000B3B23 /* Console */,
 				351CCBBB2023F6B700423531 /* Files */,
 				351CCBB62023F5F400423531 /* NotificationCenter */,
 				351CCBAF2023F53800423531 /* UserDefauts */,
@@ -185,6 +190,15 @@
 				351CCBBE2023F6E200423531 /* FilesViewController.storyboard */,
 			);
 			path = Files;
+			sourceTree = "<group>";
+		};
+		355F35402023FE06000B3B23 /* Console */ = {
+			isa = PBXGroup;
+			children = (
+				355F35412023FE1B000B3B23 /* ConsoleViewController.storyboard */,
+				355F35432023FE31000B3B23 /* ConsoleViewController.swift */,
+			);
+			path = Console;
 			sourceTree = "<group>";
 		};
 		35ED0021201E8D98007A941C = {
@@ -371,6 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				355F35422023FE1B000B3B23 /* ConsoleViewController.storyboard in Resources */,
 				351CCBB52023F58E00423531 /* UserDefaultsViewController.storyboard in Resources */,
 				351CCBBA2023F62B00423531 /* NotificationCenterViewController.storyboard in Resources */,
 				351CCB962023F31D00423531 /* Assets.xcassets in Resources */,
@@ -410,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				355F35442023FE31000B3B23 /* ConsoleViewController.swift in Sources */,
 				351CCBB82023F61500423531 /* NotificationCenterViewController.swift in Sources */,
 				351CCBB12023F56C00423531 /* UserDefaultsViewController.swift in Sources */,
 				351CCB942023F31D00423531 /* ViewController.swift in Sources */,
