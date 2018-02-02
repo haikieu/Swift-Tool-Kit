@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="hmk-a9-Vzc">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--UserDefaults-->
+        <scene sceneID="hlB-AW-zhg">
+            <objects>
+                <viewController title="UserDefaults" showSeguePresentationStyle="single" id="hmk-a9-Vzc" customClass="UserDefaultsViewController" customModule="ToolKitMacApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="c4n-5n-q8y">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="cep-Kk-50c" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6" y="13"/>
+        </scene>
+    </scenes>
+</document>

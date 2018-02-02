@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="RgM-e9-Xsq">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notification Center-->
+        <scene sceneID="9rm-pO-NVt">
+            <objects>
+                <viewController title="Notification Center" showSeguePresentationStyle="single" id="RgM-e9-Xsq" customClass="NotificationCenterViewController" customModule="ToolKitMacApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="GTh-Yj-CcU">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="Qcy-pc-fIx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="76" y="35"/>
+        </scene>
+    </scenes>
+</document>
