@@ -8,6 +8,29 @@
 
 import UIKit
 
+class ExtendQueue : OperationQueue {
+    override func addOperation(_ block: @escaping () -> Void) {
+        print("queue >>> Current tasks in \(self.name ?? "Queue") is \(self.operationCount)")
+        print("queue >>> \(self.name ?? "Queue") Gonna execute new task")
+        super.addOperation(block)
+    }
+}
+
+private let readingQueue : ExtendQueue = {
+    let queue = ExtendQueue()
+    queue.name = "ReadingQueue"
+    return queue
+}()
+private let writingQueue : ExtendQueue = {
+    let queue = ExtendQueue()
+    queue.name = "WritingQueue"
+    queue.maxConcurrentOperationCount = 1
+    return queue
+}()
+
+private weak var mainQueue : OperationQueue! = OperationQueue.main
+
+
 open class FilesViewController : UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -68,7 +91,7 @@ extension FilesViewController : UICollectionViewDelegate {
 extension FilesViewController : UICollectionViewDataSource {
     
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return 2
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -80,13 +103,10 @@ extension FilesViewController : UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FolderCell", for: indexPath)
             return cell
         }
-        if indexPath.section == 1 {
+        
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FileCell", for: indexPath)
             return cell
-        }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCell", for: indexPath)
-        return cell
         
     }
     
@@ -101,6 +121,75 @@ extension FilesViewController : UICollectionViewDataSource {
     
 }
 
-open class BaseFileCell : UICollectionViewCell {
+open class FileCell : UICollectionViewCell {
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    var isDir : Bool!
+}
+
+open class FileInfo {
+    var url : URL!
+    lazy var name : String = { return url.lastPathComponent }()
     
+}
+
+extension FileManager {
+    
+    var rootDirPath : URL {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+        return URL(fileURLWithPath: documentsPath!, isDirectory: true)
+    }
+    
+    func checkExisting(_ dirPath: URL) -> Bool {
+        var isDir : ObjCBool = false
+        let isExist = FileManager.default.fileExists(atPath: dirPath.relativePath, isDirectory: &isDir)
+        if isExist && isDir.boolValue == true {
+            print("dm >>> Found dir \(dirPath.relativePath)")
+            return true
+        } else {
+            print("dm >>> Not found dir \(dirPath.relativePath)")
+            return false
+        }
+    }
+    
+    func createDirIfNeeded(_ dirPath: URL) {
+        guard checkExisting(dirPath) == false else { return }
+        do {
+            try FileManager.default.createDirectory(atPath: dirPath.relativePath, withIntermediateDirectories: true, attributes: [:])
+            print("dm >>> Creare dir \(dirPath.relativePath)")
+        } catch {
+            print("dm >>> Error when create dir \(dirPath.relativePath)")
+        }
+    }
+    
+    func rename(_ dirPath: URL, newName: String, completion: ((Bool)->Void)? = nil) {
+        guard dirPath.isFileURL else { print("url not valid with \(dirPath)"); return }
+        
+        let newDirPath = URL(fileURLWithPath: dirPath.relativePath).deletingLastPathComponent().appendingPathComponent(newName, isDirectory: true)
+        
+        writingQueue.addOperation {
+            do {
+                try FileManager.default.moveItem(at: dirPath, to: newDirPath)
+                //                try FileManager.default.removeItem(at: dirPath)
+            } catch {
+                print("dm >>> rename is failed")
+                completion?(false)
+                return
+            }
+            print("dm >>> rename success to \(newDirPath.relativePath)")
+            completion?(true)
+        }
+    }
+    ///dirOnly = true mean get dir URls, otherwise get file Urls
+    func getURLContents(_ dirPath: URL, dirOnly: Bool = true) -> [URL] {
+        
+        do {
+            let properties : [URLResourceKey]? = dirOnly ? [.isDirectoryKey, .totalFileSizeKey] : [.fileSizeKey]
+            let urls = try FileManager.default.contentsOfDirectory(at: dirPath, includingPropertiesForKeys: properties, options: .skipsHiddenFiles)
+            return urls
+        } catch {
+            print("dm >>> Error when count files / dirs")
+        }
+        return []
+    }
 }
