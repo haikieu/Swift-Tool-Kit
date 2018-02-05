@@ -26,11 +26,10 @@ public extension UIViewController {
         present(inputVC, animated: true, completion: nil)
     }
     
-    func toast(message : String, completion: (()->Void)? = nil) {
-        //TODO: need to implement
-    }
-    
-    func toast(confirm : String, completion: ((_ confirm: Bool)->Void)) {
-        //TODO: need to implement
+    public var topPresentedViewController : UIViewController? {
+        if presentedViewController == nil {
+            return self
+        }
+        return presentedViewController?.topPresentedViewController
     }
 }

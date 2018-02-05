@@ -84,6 +84,7 @@ open class FilesViewController : UIViewController {
         }
     }
     @IBAction func handleAddingAction(_ sender: Any) {
+
         let actionVC = UIAlertController.init(title: "Please choose an action", message: nil, preferredStyle: .actionSheet)
         
         actionVC.addAction(UIAlertAction.init(title: "Add File", style: .default, handler: { (action) in
