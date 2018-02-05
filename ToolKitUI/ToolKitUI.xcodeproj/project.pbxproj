@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		355F357720283277000B3B23 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355F357620283277000B3B23 /* UIViewController.swift */; };
 		35ED0085201E8E1C007A941C /* ToolKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35ED007B201E8E1C007A941C /* ToolKitUI.framework */; };
 		35ED008A201E8E1C007A941C /* ToolKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED0089201E8E1C007A941C /* ToolKitUITests.swift */; };
 		35ED008C201E8E1C007A941C /* ToolKitUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 35ED007E201E8E1C007A941C /* ToolKitUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -20,7 +21,7 @@
 		35ED00C0201E9112007A941C /* ToolKitWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00BF201E9112007A941C /* ToolKitWindow.swift */; };
 		35ED02912020141C007A941C /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED02902020141C007A941C /* FilesViewController.swift */; };
 		35ED029420201457007A941C /* Files.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35ED029320201457007A941C /* Files.xcassets */; };
-		35ED029520201516007A941C /* FilesScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35ED029220201428007A941C /* FilesScreen.storyboard */; };
+		35ED029520201516007A941C /* FilesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35ED029220201428007A941C /* FilesViewController.storyboard */; };
 		35ED029720201BA8007A941C /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED029620201BA8007A941C /* TextViewController.swift */; };
 		35ED029920201BBE007A941C /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED029820201BBE007A941C /* ImageViewController.swift */; };
 		35ED029B20201BD3007A941C /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED029A20201BD3007A941C /* AudioViewController.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		355F357620283277000B3B23 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		35ED007B201E8E1C007A941C /* ToolKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ToolKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35ED007E201E8E1C007A941C /* ToolKitUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolKitUI.h; sourceTree = "<group>"; };
 		35ED007F201E8E1C007A941C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,7 +71,7 @@
 		35ED00BD201E90D1007A941C /* NotificationCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterViewController.swift; sourceTree = "<group>"; };
 		35ED00BF201E9112007A941C /* ToolKitWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolKitWindow.swift; sourceTree = "<group>"; };
 		35ED02902020141C007A941C /* FilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
-		35ED029220201428007A941C /* FilesScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilesScreen.storyboard; sourceTree = "<group>"; };
+		35ED029220201428007A941C /* FilesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilesViewController.storyboard; sourceTree = "<group>"; };
 		35ED029320201457007A941C /* Files.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Files.xcassets; sourceTree = "<group>"; };
 		35ED029620201BA8007A941C /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		35ED029820201BBE007A941C /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		355F357520283259000B3B23 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				355F357620283277000B3B23 /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		35ED0071201E8E1C007A941C = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +175,7 @@
 		35ED00B0201E8FE2007A941C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				355F357520283259000B3B23 /* Extensions */,
 				35ED00B1201E9023007A941C /* ToolKitViewController.swift */,
 				35ED00BF201E9112007A941C /* ToolKitWindow.swift */,
 				35ED00B4201E903D007A941C /* Screens */,
@@ -189,7 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				35ED029320201457007A941C /* Files.xcassets */,
-				35ED029220201428007A941C /* FilesScreen.storyboard */,
+				35ED029220201428007A941C /* FilesViewController.storyboard */,
 				35ED02902020141C007A941C /* FilesViewController.swift */,
 				35ED029620201BA8007A941C /* TextViewController.swift */,
 				35ED029820201BBE007A941C /* ImageViewController.swift */,
@@ -343,7 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35ED029420201457007A941C /* Files.xcassets in Resources */,
-				35ED029520201516007A941C /* FilesScreen.storyboard in Resources */,
+				35ED029520201516007A941C /* FilesViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +386,7 @@
 				35ED029B20201BD3007A941C /* AudioViewController.swift in Sources */,
 				35ED02912020141C007A941C /* FilesViewController.swift in Sources */,
 				35ED00BC201E90B0007A941C /* UserDefaultViewController.swift in Sources */,
+				355F357720283277000B3B23 /* UIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
