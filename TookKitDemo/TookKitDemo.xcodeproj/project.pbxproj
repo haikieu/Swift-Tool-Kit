@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3512FF2E20283C57006B851B /* DevKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3512FF2D20283C57006B851B /* DevKitUI.framework */; };
+		3512FF2F20283C57006B851B /* DevKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3512FF2D20283C57006B851B /* DevKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3512FF3220283C5F006B851B /* ToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3512FF3120283C5F006B851B /* ToolKit.framework */; };
+		3512FF3320283C5F006B851B /* ToolKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3512FF3120283C5F006B851B /* ToolKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		351CCB922023F31D00423531 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CCB912023F31D00423531 /* AppDelegate.swift */; };
 		351CCB942023F31D00423531 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CCB932023F31D00423531 /* ViewController.swift */; };
 		351CCB962023F31D00423531 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351CCB952023F31D00423531 /* Assets.xcassets */; };
@@ -26,10 +30,6 @@
 		35ED0035201E8D98007A941C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35ED0034201E8D98007A941C /* Assets.xcassets */; };
 		35ED0038201E8D98007A941C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35ED0036201E8D98007A941C /* LaunchScreen.storyboard */; };
 		35ED0043201E8D98007A941C /* TookKitDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED0042201E8D98007A941C /* TookKitDemoTests.swift */; };
-		35ED00A1201E8E66007A941C /* ToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35ED00A0201E8E66007A941C /* ToolKit.framework */; };
-		35ED00A2201E8E66007A941C /* ToolKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 35ED00A0201E8E66007A941C /* ToolKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		35ED00A5201E8E6B007A941C /* ToolKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35ED00A4201E8E6B007A941C /* ToolKitUI.framework */; };
-		35ED00A6201E8E6B007A941C /* ToolKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 35ED00A4201E8E6B007A941C /* ToolKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,14 +50,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		35ED00A3201E8E66007A941C /* Embed Frameworks */ = {
+		3512FF3020283C58006B851B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				35ED00A2201E8E66007A941C /* ToolKit.framework in Embed Frameworks */,
-				35ED00A6201E8E6B007A941C /* ToolKitUI.framework in Embed Frameworks */,
+				3512FF2F20283C57006B851B /* DevKitUI.framework in Embed Frameworks */,
+				3512FF3320283C5F006B851B /* ToolKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,6 +65,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3512FF2D20283C57006B851B /* DevKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DevKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3512FF3120283C5F006B851B /* ToolKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ToolKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		351CCB8F2023F31D00423531 /* ToolKitMacApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToolKitMacApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		351CCB912023F31D00423531 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		351CCB932023F31D00423531 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,8 +95,6 @@
 		35ED003E201E8D98007A941C /* TookKitDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TookKitDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35ED0042201E8D98007A941C /* TookKitDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TookKitDemoTests.swift; sourceTree = "<group>"; };
 		35ED0044201E8D98007A941C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		35ED00A0201E8E66007A941C /* ToolKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ToolKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		35ED00A4201E8E6B007A941C /* ToolKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ToolKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +116,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35ED00A1201E8E66007A941C /* ToolKit.framework in Frameworks */,
-				35ED00A5201E8E6B007A941C /* ToolKitUI.framework in Frameworks */,
+				3512FF2E20283C57006B851B /* DevKitUI.framework in Frameworks */,
+				3512FF3220283C5F006B851B /* ToolKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +210,8 @@
 				351CCBA32023F31E00423531 /* ToolKitMacAppTests */,
 				35ED00A7201E8E72007A941C /* Frameworks */,
 				35ED002B201E8D98007A941C /* Products */,
+				3512FF3120283C5F006B851B /* ToolKit.framework */,
+				3512FF2D20283C57006B851B /* DevKitUI.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -249,8 +251,6 @@
 		35ED00A7201E8E72007A941C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				35ED00A4201E8E6B007A941C /* ToolKitUI.framework */,
-				35ED00A0201E8E66007A941C /* ToolKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 				35ED0026201E8D98007A941C /* Sources */,
 				35ED0027201E8D98007A941C /* Frameworks */,
 				35ED0028201E8D98007A941C /* Resources */,
-				35ED00A3201E8E66007A941C /* Embed Frameworks */,
+				3512FF3020283C58006B851B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

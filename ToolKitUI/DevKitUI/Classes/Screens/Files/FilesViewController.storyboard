@@ -47,7 +47,7 @@
         <!--Files View Controller-->
         <scene sceneID="WOW-06-3WT">
             <objects>
-                <viewController storyboardIdentifier="FilesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h7Z-Te-SQy" customClass="FilesViewController" customModule="ToolKitUI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FilesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h7Z-Te-SQy" customClass="FilesViewController" customModule="DevKitUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kyW-ct-a8J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +62,7 @@
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FolderCell" id="U8F-l0-Uxp" customClass="FileCell" customModule="ToolKitUI" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FolderCell" id="U8F-l0-Uxp" customClass="FileCell" customModule="DevKitUI" customModuleProvider="target">
                                         <rect key="frame" x="10" y="10" width="110" height="129"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -112,7 +112,7 @@
                                             <outlet property="nameLabel" destination="U9Y-cV-5zi" id="bGz-wl-PMJ"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FileCell" id="cCJ-Rp-DTL" customClass="FileCell" customModule="ToolKitUI" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FileCell" id="cCJ-Rp-DTL" customClass="FileCell" customModule="DevKitUI" customModuleProvider="target">
                                         <rect key="frame" x="132.5" y="10" width="110" height="129"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
