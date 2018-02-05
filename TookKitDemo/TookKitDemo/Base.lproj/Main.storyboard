@@ -38,13 +38,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--FilesScreen-->
+        <!--FilesViewController-->
         <scene sceneID="wSa-bF-bn2">
             <objects>
-                <viewControllerPlaceholder storyboardName="FilesScreen" bundleIdentifier="com.hk.lib.ToolKitUI" id="zbV-9q-8wH" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="FilesViewController" bundleIdentifier="com.hk.lib.ToolKitUI" id="zbV-9q-8wH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O4z-lb-dUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33" y="506"/>
+            <point key="canvasLocation" x="28" y="578"/>
         </scene>
     </scenes>
 </document>
