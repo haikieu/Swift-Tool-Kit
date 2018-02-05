@@ -15,7 +15,7 @@
 		351CCB942023F31D00423531 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CCB932023F31D00423531 /* ViewController.swift */; };
 		351CCB962023F31D00423531 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351CCB952023F31D00423531 /* Assets.xcassets */; };
 		351CCB992023F31D00423531 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351CCB972023F31D00423531 /* Main.storyboard */; };
-		351CCBA52023F31E00423531 /* ToolKitMacAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CCBA42023F31E00423531 /* ToolKitMacAppTests.swift */; };
+		351CCBA52023F31E00423531 /* DevKitMacAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CCBA42023F31E00423531 /* DevKitMacAppTests.swift */; };
 		351CCBB12023F56C00423531 /* UserDefaultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CCBB02023F56C00423531 /* UserDefaultsViewController.swift */; };
 		351CCBB52023F58E00423531 /* UserDefaultsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351CCBB42023F58E00423531 /* UserDefaultsViewController.storyboard */; };
 		351CCBB82023F61500423531 /* NotificationCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CCBB72023F61500423531 /* NotificationCenterViewController.swift */; };
@@ -38,7 +38,7 @@
 			containerPortal = 35ED0022201E8D98007A941C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 351CCB8E2023F31D00423531;
-			remoteInfo = ToolKitMacApp;
+			remoteInfo = DevKitMacApp;
 		};
 		35ED003F201E8D98007A941C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,17 +65,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		350F721720283E6D00056D17 /* DevKitMacApp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = DevKitMacApp.entitlements; sourceTree = "<group>"; };
 		3512FF2D20283C57006B851B /* DevKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DevKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3512FF3120283C5F006B851B /* ToolKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ToolKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		351CCB8F2023F31D00423531 /* ToolKitMacApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToolKitMacApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		351CCB8F2023F31D00423531 /* DevKitMacApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevKitMacApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		351CCB912023F31D00423531 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		351CCB932023F31D00423531 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		351CCB952023F31D00423531 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		351CCB982023F31D00423531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		351CCB9A2023F31D00423531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		351CCB9B2023F31D00423531 /* ToolKitMacApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToolKitMacApp.entitlements; sourceTree = "<group>"; };
-		351CCBA02023F31E00423531 /* ToolKitMacAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToolKitMacAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		351CCBA42023F31E00423531 /* ToolKitMacAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolKitMacAppTests.swift; sourceTree = "<group>"; };
+		351CCBA02023F31E00423531 /* DevKitMacAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DevKitMacAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		351CCBA42023F31E00423531 /* DevKitMacAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevKitMacAppTests.swift; sourceTree = "<group>"; };
 		351CCBA62023F31E00423531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		351CCBB02023F56C00423531 /* UserDefaultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsViewController.swift; sourceTree = "<group>"; };
 		351CCBB42023F58E00423531 /* UserDefaultsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDefaultsViewController.storyboard; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		351CCB902023F31D00423531 /* ToolKitMacApp */ = {
+		351CCB902023F31D00423531 /* DevKitMacApp */ = {
 			isa = PBXGroup;
 			children = (
 				351CCBAE2023F52E00423531 /* Screens */,
@@ -140,18 +140,18 @@
 				351CCB952023F31D00423531 /* Assets.xcassets */,
 				351CCB972023F31D00423531 /* Main.storyboard */,
 				351CCB9A2023F31D00423531 /* Info.plist */,
-				351CCB9B2023F31D00423531 /* ToolKitMacApp.entitlements */,
+				350F721720283E6D00056D17 /* DevKitMacApp.entitlements */,
 			);
-			path = ToolKitMacApp;
+			path = DevKitMacApp;
 			sourceTree = "<group>";
 		};
-		351CCBA32023F31E00423531 /* ToolKitMacAppTests */ = {
+		351CCBA32023F31E00423531 /* DevKitMacAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				351CCBA42023F31E00423531 /* ToolKitMacAppTests.swift */,
+				351CCBA42023F31E00423531 /* DevKitMacAppTests.swift */,
 				351CCBA62023F31E00423531 /* Info.plist */,
 			);
-			path = ToolKitMacAppTests;
+			path = DevKitMacAppTests;
 			sourceTree = "<group>";
 		};
 		351CCBAE2023F52E00423531 /* Screens */ = {
@@ -206,8 +206,8 @@
 			children = (
 				35ED002C201E8D98007A941C /* TookKitDemo */,
 				35ED0041201E8D98007A941C /* TookKitDemoTests */,
-				351CCB902023F31D00423531 /* ToolKitMacApp */,
-				351CCBA32023F31E00423531 /* ToolKitMacAppTests */,
+				351CCB902023F31D00423531 /* DevKitMacApp */,
+				351CCBA32023F31E00423531 /* DevKitMacAppTests */,
 				35ED00A7201E8E72007A941C /* Frameworks */,
 				35ED002B201E8D98007A941C /* Products */,
 				3512FF3120283C5F006B851B /* ToolKit.framework */,
@@ -220,8 +220,8 @@
 			children = (
 				35ED002A201E8D98007A941C /* TookKitDemo.app */,
 				35ED003E201E8D98007A941C /* TookKitDemoTests.xctest */,
-				351CCB8F2023F31D00423531 /* ToolKitMacApp.app */,
-				351CCBA02023F31E00423531 /* ToolKitMacAppTests.xctest */,
+				351CCB8F2023F31D00423531 /* DevKitMacApp.app */,
+				351CCBA02023F31E00423531 /* DevKitMacAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -258,9 +258,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		351CCB8E2023F31D00423531 /* ToolKitMacApp */ = {
+		351CCB8E2023F31D00423531 /* DevKitMacApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 351CCBAB2023F31E00423531 /* Build configuration list for PBXNativeTarget "ToolKitMacApp" */;
+			buildConfigurationList = 351CCBAB2023F31E00423531 /* Build configuration list for PBXNativeTarget "DevKitMacApp" */;
 			buildPhases = (
 				351CCB8B2023F31D00423531 /* Sources */,
 				351CCB8C2023F31D00423531 /* Frameworks */,
@@ -270,14 +270,14 @@
 			);
 			dependencies = (
 			);
-			name = ToolKitMacApp;
-			productName = ToolKitMacApp;
-			productReference = 351CCB8F2023F31D00423531 /* ToolKitMacApp.app */;
+			name = DevKitMacApp;
+			productName = DevKitMacApp;
+			productReference = 351CCB8F2023F31D00423531 /* DevKitMacApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		351CCB9F2023F31E00423531 /* ToolKitMacAppTests */ = {
+		351CCB9F2023F31E00423531 /* DevKitMacAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 351CCBAC2023F31E00423531 /* Build configuration list for PBXNativeTarget "ToolKitMacAppTests" */;
+			buildConfigurationList = 351CCBAC2023F31E00423531 /* Build configuration list for PBXNativeTarget "DevKitMacAppTests" */;
 			buildPhases = (
 				351CCB9C2023F31E00423531 /* Sources */,
 				351CCB9D2023F31E00423531 /* Frameworks */,
@@ -288,9 +288,9 @@
 			dependencies = (
 				351CCBA22023F31E00423531 /* PBXTargetDependency */,
 			);
-			name = ToolKitMacAppTests;
-			productName = ToolKitMacAppTests;
-			productReference = 351CCBA02023F31E00423531 /* ToolKitMacAppTests.xctest */;
+			name = DevKitMacAppTests;
+			productName = DevKitMacAppTests;
+			productReference = 351CCBA02023F31E00423531 /* DevKitMacAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		35ED0029201E8D98007A941C /* TookKitDemo */ = {
@@ -374,8 +374,8 @@
 			targets = (
 				35ED0029201E8D98007A941C /* TookKitDemo */,
 				35ED003D201E8D98007A941C /* TookKitDemoTests */,
-				351CCB8E2023F31D00423531 /* ToolKitMacApp */,
-				351CCB9F2023F31E00423531 /* ToolKitMacAppTests */,
+				351CCB8E2023F31D00423531 /* DevKitMacApp */,
+				351CCB9F2023F31E00423531 /* DevKitMacAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -438,7 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				351CCBA52023F31E00423531 /* ToolKitMacAppTests.swift in Sources */,
+				351CCBA52023F31E00423531 /* DevKitMacAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +464,7 @@
 /* Begin PBXTargetDependency section */
 		351CCBA22023F31E00423531 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 351CCB8E2023F31D00423531 /* ToolKitMacApp */;
+			target = 351CCB8E2023F31D00423531 /* DevKitMacApp */;
 			targetProxy = 351CCBA12023F31E00423531 /* PBXContainerItemProxy */;
 		};
 		35ED0040201E8D98007A941C /* PBXTargetDependency */ = {
@@ -506,15 +506,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ToolKitMacApp/ToolKitMacApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DevKitMacApp/DevKitMacApp.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = P3SL8HVN4S;
-				INFOPLIST_FILE = ToolKitMacApp/Info.plist;
+				INFOPLIST_FILE = DevKitMacApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hk.app.ToolKitMacApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hk.app.DevKitMacApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 4.0;
@@ -525,15 +525,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ToolKitMacApp/ToolKitMacApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DevKitMacApp/DevKitMacApp.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = P3SL8HVN4S;
-				INFOPLIST_FILE = ToolKitMacApp/Info.plist;
+				INFOPLIST_FILE = DevKitMacApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hk.app.ToolKitMacApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hk.app.DevKitMacApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 4.0;
@@ -549,14 +549,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = P3SL8HVN4S;
-				INFOPLIST_FILE = ToolKitMacAppTests/Info.plist;
+				INFOPLIST_FILE = DevKitMacAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hk.app.ToolKitMacAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hk.app.DevKitMacAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToolKitMacApp.app/Contents/MacOS/ToolKitMacApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DevKitMacApp.app/Contents/MacOS/DevKitMacApp";
 			};
 			name = Debug;
 		};
@@ -569,14 +569,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = P3SL8HVN4S;
-				INFOPLIST_FILE = ToolKitMacAppTests/Info.plist;
+				INFOPLIST_FILE = DevKitMacAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hk.app.ToolKitMacAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hk.app.DevKitMacAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToolKitMacApp.app/Contents/MacOS/ToolKitMacApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DevKitMacApp.app/Contents/MacOS/DevKitMacApp";
 			};
 			name = Release;
 		};
@@ -754,7 +754,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		351CCBAB2023F31E00423531 /* Build configuration list for PBXNativeTarget "ToolKitMacApp" */ = {
+		351CCBAB2023F31E00423531 /* Build configuration list for PBXNativeTarget "DevKitMacApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				351CCBA72023F31E00423531 /* Debug */,
@@ -763,7 +763,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		351CCBAC2023F31E00423531 /* Build configuration list for PBXNativeTarget "ToolKitMacAppTests" */ = {
+		351CCBAC2023F31E00423531 /* Build configuration list for PBXNativeTarget "DevKitMacAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				351CCBA92023F31E00423531 /* Debug */,
