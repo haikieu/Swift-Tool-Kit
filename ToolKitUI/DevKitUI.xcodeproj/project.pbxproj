@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3512FF2C20283BAA006B851B /* FilesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35ED029220201428007A941C /* FilesViewController.storyboard */; };
 		3540911F20283CFA005C69A4 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED02902020141C007A941C /* FilesViewController.swift */; };
-		355F357720283277000B3B23 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355F357620283277000B3B23 /* UIViewController.swift */; };
 		35ED0085201E8E1C007A941C /* DevKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35ED007B201E8E1C007A941C /* DevKitUI.framework */; };
 		35ED008A201E8E1C007A941C /* DevKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED0089201E8E1C007A941C /* DevKitUITests.swift */; };
 		35ED009F201E8E56007A941C /* ToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35ED009C201E8E46007A941C /* ToolKit.framework */; };
@@ -55,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		3512FF2820283B66006B851B /* DevKitUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevKitUI.h; sourceTree = "<group>"; };
-		355F357620283277000B3B23 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		35ED007B201E8E1C007A941C /* DevKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DevKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35ED007F201E8E1C007A941C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35ED0084201E8E1C007A941C /* DevKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DevKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,14 +98,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		355F357520283259000B3B23 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				355F357620283277000B3B23 /* UIViewController.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		35ED0071201E8E1C007A941C = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +164,6 @@
 		35ED00B0201E8FE2007A941C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				355F357520283259000B3B23 /* Extensions */,
 				35ED00B1201E9023007A941C /* ToolKitViewController.swift */,
 				35ED00BF201E9112007A941C /* ToolKitWindow.swift */,
 				35ED00B4201E903D007A941C /* Screens */,
@@ -384,7 +373,6 @@
 				35ED029B20201BD3007A941C /* AudioViewController.swift in Sources */,
 				35ED00BC201E90B0007A941C /* UserDefaultViewController.swift in Sources */,
 				3540911F20283CFA005C69A4 /* FilesViewController.swift in Sources */,
-				355F357720283277000B3B23 /* UIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
