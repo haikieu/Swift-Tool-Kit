@@ -44,9 +44,12 @@ open class FilesViewController : UIViewController {
     
     fileprivate var longPressGesture: UILongPressGestureRecognizer!
     
+    var currentPathUrl : URL!
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         
+        if currentPathUrl == nil { currentPathUrl = FileManager.default.rootPathUrl }
     }
     
     var isDraggale = false {
@@ -79,6 +82,35 @@ open class FilesViewController : UIViewController {
             collectionView.cancelInteractiveMovement()
         }
     }
+    @IBAction func handleAddingAction(_ sender: Any) {
+        let actionVC = UIAlertController.init(title: "Please choose an action", message: nil, preferredStyle: .actionSheet)
+        
+        actionVC.addAction(UIAlertAction.init(title: "Add File", style: .default, handler: { (action) in
+            self.presentInput(title: "Enter file name", actionText: "Add", cancelText: "Cancel", completion: { [weak self] (confirm, input) in
+                guard confirm, let input = input else { return }
+                self?.addFile(input)
+            })
+        }))
+        actionVC.addAction(UIAlertAction.init(title: "Add Folder", style: .default, handler: { (action) in
+            self.presentInput(title: "Enter folder name", actionText: "Add", cancelText: "Cancel", completion: { [weak self] (confirm, input) in
+                guard confirm, let input = input else { return }
+                self?.addFolder(input)
+            })
+        }))
+        
+        actionVC.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: { (action) in
+            //Might do something
+        }))
+        present(actionVC, animated: true, completion: nil)
+    }
+    
+    func addFile(_ fileName: String) {
+        
+    }
+    
+    func addFolder(_ fileName: String) {
+        
+    }
 }
 
 extension FilesViewController : UICollectionViewDelegate {
@@ -91,20 +123,26 @@ extension FilesViewController : UICollectionViewDelegate {
 extension FilesViewController : UICollectionViewDataSource {
     
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 1
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return FileManager.default.getRootContents().count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FolderCell", for: indexPath)
-            return cell
-        }
         
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FileCell", for: indexPath)
+        let fileInfo = FileManager.default.getRootContents()[indexPath.item]
+        
+        
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FolderCell", for: indexPath)
+//            return cell
+//        }
+        
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FileCell", for: indexPath) as! FileCell
+        
+        cell.nameLabel.text = fileInfo.name
+        
             return cell
         
         
@@ -128,48 +166,58 @@ open class FileCell : UICollectionViewCell {
 }
 
 open class FileInfo {
-    var url : URL!
+    var url : URL
     lazy var name : String = { return url.lastPathComponent }()
+//    lazy var isFolder : Bool = { return url.hasDirectoryPath }()
+//    var isDir : Bool
+    var isExisting : Bool { return FileManager.default.checkExisting(self)}
     
+    init(_ url: URL) {
+        self.url = url
+    }
 }
 
 extension FileManager {
     
-    var rootDirPath : URL {
+    var rootPathUrl : URL {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
         return URL(fileURLWithPath: documentsPath!, isDirectory: true)
     }
     
-    func checkExisting(_ dirPath: URL) -> Bool {
+    func checkExisting(_ pathUrl: URL) -> Bool {
         var isDir : ObjCBool = false
-        let isExist = FileManager.default.fileExists(atPath: dirPath.relativePath, isDirectory: &isDir)
+        let isExist = FileManager.default.fileExists(atPath: pathUrl.relativePath, isDirectory: &isDir)
         if isExist && isDir.boolValue == true {
-            print("dm >>> Found dir \(dirPath.relativePath)")
+            print("dm >>> Found dir \(pathUrl.relativePath)")
             return true
         } else {
-            print("dm >>> Not found dir \(dirPath.relativePath)")
+            print("dm >>> Not found dir \(pathUrl.relativePath)")
             return false
         }
     }
     
-    func createDirIfNeeded(_ dirPath: URL) {
-        guard checkExisting(dirPath) == false else { return }
+    func checkExisting(_ file: FileInfo) -> Bool {
+        return checkExisting(file.url)
+    }
+    
+    private func createDirIfNeeded(_ pathUrl: URL) {
+        guard checkExisting(pathUrl) == false else { return }
         do {
-            try FileManager.default.createDirectory(atPath: dirPath.relativePath, withIntermediateDirectories: true, attributes: [:])
-            print("dm >>> Creare dir \(dirPath.relativePath)")
+            try FileManager.default.createDirectory(atPath: pathUrl.relativePath, withIntermediateDirectories: true, attributes: [:])
+            print("dm >>> Creare dir \(pathUrl.relativePath)")
         } catch {
-            print("dm >>> Error when create dir \(dirPath.relativePath)")
+            print("dm >>> Error when create dir \(pathUrl.relativePath)")
         }
     }
     
-    func rename(_ dirPath: URL, newName: String, completion: ((Bool)->Void)? = nil) {
-        guard dirPath.isFileURL else { print("url not valid with \(dirPath)"); return }
+    func rename(_ pathUrl: URL, newName: String, completion: ((Bool)->Void)? = nil) {
+        guard pathUrl.isFileURL else { print("url not valid with \(pathUrl)"); return }
         
-        let newDirPath = URL(fileURLWithPath: dirPath.relativePath).deletingLastPathComponent().appendingPathComponent(newName, isDirectory: true)
+        let newDirPath = URL(fileURLWithPath: pathUrl.relativePath).deletingLastPathComponent().appendingPathComponent(newName, isDirectory: true)
         
         writingQueue.addOperation {
             do {
-                try FileManager.default.moveItem(at: dirPath, to: newDirPath)
+                try FileManager.default.moveItem(at: pathUrl, to: newDirPath)
                 //                try FileManager.default.removeItem(at: dirPath)
             } catch {
                 print("dm >>> rename is failed")
@@ -180,16 +228,37 @@ extension FileManager {
             completion?(true)
         }
     }
+    
+    func getRootContents() -> [FileInfo] {
+        return getContents(rootPathUrl)
+    }
+    
     ///dirOnly = true mean get dir URls, otherwise get file Urls
-    func getURLContents(_ dirPath: URL, dirOnly: Bool = true) -> [URL] {
+    func getContents(_ pathUrl: URL, dirOnly: Bool = false) -> [FileInfo] {
         
         do {
             let properties : [URLResourceKey]? = dirOnly ? [.isDirectoryKey, .totalFileSizeKey] : [.fileSizeKey]
-            let urls = try FileManager.default.contentsOfDirectory(at: dirPath, includingPropertiesForKeys: properties, options: .skipsHiddenFiles)
-            return urls
+            let urls = try FileManager.default.contentsOfDirectory(at: pathUrl, includingPropertiesForKeys: properties, options: [.skipsHiddenFiles])
+            
+            var files = [FileInfo]()
+            for url in urls {
+                files.append(FileInfo.init(url))
+            }
+            return files
+            
         } catch {
             print("dm >>> Error when count files / dirs")
         }
         return []
+    }
+    
+    
+    func getAttrs(_ pathUrl: URL) -> [FileAttributeKey:Any] {
+        do {
+            return try FileManager.default.attributesOfItem(atPath: pathUrl.relativePath)
+        } catch {
+            print("fm >>> cannot get attributes at path \(pathUrl.relativePath)")
+        }
+        return [:]
     }
 }

@@ -178,7 +178,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CPl-ir-7Ch"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="add" id="yKN-fM-bRc">
+                            <connections>
+                                <action selector="handleAddingAction:" destination="h7Z-Te-SQy" id="PSx-13-xYH"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="u6L-gJ-n8h"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="QIb-Ft-1Yb" id="E9D-SL-I25"/>
                         <segue destination="TyN-nU-Her" kind="showDetail" identifier="segue_preview_image" id="UE7-6D-74h"/>
