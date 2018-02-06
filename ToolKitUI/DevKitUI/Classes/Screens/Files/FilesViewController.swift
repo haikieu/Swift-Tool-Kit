@@ -46,11 +46,17 @@ open class FilesViewController : UIViewController {
     fileprivate var longPressGesture: UILongPressGestureRecognizer!
     
     var currentPathUrl : URL!
+    var selectedFileInfo : FileInfo!
+    lazy var fileInfos : [FileInfo] = {
+        return FileManager.default.getContents(currentPathUrl)
+    }()
     
     override open func viewDidLoad() {
         super.viewDidLoad()
         
         if currentPathUrl == nil { currentPathUrl = FileManager.default.rootPathUrl }
+        
+        title = currentPathUrl.lastPathComponent
     }
     
     var isDraggale = false {
@@ -107,18 +113,42 @@ open class FilesViewController : UIViewController {
     }
     
     func addFile(_ fileName: String) {
-        
+        guard FileManager.default.createFile(atPath: currentPathUrl.appendingPathComponent(fileName).absoluteString, contents: nil, attributes: nil) else {
+            return
+        }
+        //TODO: Create file success
+        reloadData()
     }
     
-    func addFolder(_ fileName: String) {
+    func addFolder(_ dirName: String) {
+        do {
+            try FileManager.default.createDirectory(at: currentPathUrl.appendingPathComponent(dirName), withIntermediateDirectories: true, attributes: nil)
+            //TODO: Create dir success
+        } catch let error {
+            //TODO: handle issue
+        }
         
+        reloadData()
+    }
+    
+    func reloadData() {
+        fileInfos = FileManager.default.getContents(currentPathUrl)
+        collectionView.reloadData()
     }
 }
 
 extension FilesViewController : UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "FilesViewController") else { return }
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        guard indexPath.item >= 0, indexPath.item < fileInfos.count else { return }
+        
+        selectedFileInfo = fileInfos[indexPath.item]
+        
+        if selectedFileInfo.isFolder == true, let vc = self.storyboard?.instantiateViewController(withIdentifier: "FilesViewController") as? FilesViewController {
+            vc.currentPathUrl = selectedFileInfo.url
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
     }
 }
 
@@ -129,25 +159,24 @@ extension FilesViewController : UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return FileManager.default.getRootContents().count
+        return fileInfos.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let fileInfo = FileManager.default.getRootContents()[indexPath.item]
+        guard indexPath.item >= 0, indexPath.item < fileInfos.count else { return UICollectionViewCell() }
         
+        let fileInfo = fileInfos[indexPath.item]
         
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FolderCell", for: indexPath)
-//            return cell
-//        }
-        
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FileCell", for: indexPath) as! FileCell
-        
+        let cell : FileCell!
+        if fileInfo.isFolder {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FolderCell", for: indexPath) as! FileCell
+        } else {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FileCell", for: indexPath) as! FileCell
+        }
         cell.nameLabel.text = fileInfo.name
         
-            return cell
-        
-        
+        return cell
     }
     
     public func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
@@ -165,18 +194,31 @@ open class FileCell : UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     var isDir : Bool!
+    
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        nameLabel.sizeToFit()
+    }
+    
+    open override func prepareForReuse() {
+        super.prepareForReuse()
+        nameLabel.text = nil
+    }
 }
 
 open class FileInfo {
     var url : URL
     lazy var name : String = { return url.lastPathComponent }()
-//    lazy var isFolder : Bool = { return url.hasDirectoryPath }()
+    lazy var isFolder : Bool = { return url.hasDirectoryPath }()
 //    var isDir : Bool
     var isExisting : Bool { return FileManager.default.checkExisting(self)}
+    
     
     init(_ url: URL) {
         self.url = url
     }
+    
+    
 }
 
 extension FileManager {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35025E5B20294930001B0807 /* UserDefaultsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35025E5A20294930001B0807 /* UserDefaultsViewController.storyboard */; };
 		3512FF2C20283BAA006B851B /* FilesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35ED029220201428007A941C /* FilesViewController.storyboard */; };
 		3540911F20283CFA005C69A4 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED02902020141C007A941C /* FilesViewController.swift */; };
 		35ED0085201E8E1C007A941C /* DevKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35ED007B201E8E1C007A941C /* DevKitUI.framework */; };
@@ -16,7 +17,7 @@
 		35ED00B6201E9060007A941C /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00B5201E9060007A941C /* DashBoardViewController.swift */; };
 		35ED00B8201E9083007A941C /* LoggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00B7201E9083007A941C /* LoggingViewController.swift */; };
 		35ED00BA201E909C007A941C /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00B9201E909C007A941C /* ServiceViewController.swift */; };
-		35ED00BC201E90B0007A941C /* UserDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00BB201E90B0007A941C /* UserDefaultViewController.swift */; };
+		35ED00BC201E90B0007A941C /* UserDefaultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00BB201E90B0007A941C /* UserDefaultsViewController.swift */; };
 		35ED00BE201E90D1007A941C /* NotificationCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00BD201E90D1007A941C /* NotificationCenterViewController.swift */; };
 		35ED00C0201E9112007A941C /* ToolKitWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00BF201E9112007A941C /* ToolKitWindow.swift */; };
 		35ED029420201457007A941C /* Files.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35ED029320201457007A941C /* Files.xcassets */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		35025E5A20294930001B0807 /* UserDefaultsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDefaultsViewController.storyboard; sourceTree = "<group>"; };
 		3512FF2820283B66006B851B /* DevKitUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevKitUI.h; sourceTree = "<group>"; };
 		35ED007B201E8E1C007A941C /* DevKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DevKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35ED007F201E8E1C007A941C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,7 +66,7 @@
 		35ED00B5201E9060007A941C /* DashBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
 		35ED00B7201E9083007A941C /* LoggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingViewController.swift; sourceTree = "<group>"; };
 		35ED00B9201E909C007A941C /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
-		35ED00BB201E90B0007A941C /* UserDefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultViewController.swift; sourceTree = "<group>"; };
+		35ED00BB201E90B0007A941C /* UserDefaultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsViewController.swift; sourceTree = "<group>"; };
 		35ED00BD201E90D1007A941C /* NotificationCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterViewController.swift; sourceTree = "<group>"; };
 		35ED00BF201E9112007A941C /* ToolKitWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolKitWindow.swift; sourceTree = "<group>"; };
 		35ED02902020141C007A941C /* FilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
@@ -219,7 +221,8 @@
 		35ED02A720202038007A941C /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
-				35ED00BB201E90B0007A941C /* UserDefaultViewController.swift */,
+				35ED00BB201E90B0007A941C /* UserDefaultsViewController.swift */,
+				35025E5A20294930001B0807 /* UserDefaultsViewController.storyboard */,
 			);
 			path = UserDefaults;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35025E5B20294930001B0807 /* UserDefaultsViewController.storyboard in Resources */,
 				35ED029420201457007A941C /* Files.xcassets in Resources */,
 				3512FF2C20283BAA006B851B /* FilesViewController.storyboard in Resources */,
 			);
@@ -371,7 +375,7 @@
 				35ED029720201BA8007A941C /* TextViewController.swift in Sources */,
 				35ED00B6201E9060007A941C /* DashBoardViewController.swift in Sources */,
 				35ED029B20201BD3007A941C /* AudioViewController.swift in Sources */,
-				35ED00BC201E90B0007A941C /* UserDefaultViewController.swift in Sources */,
+				35ED00BC201E90B0007A941C /* UserDefaultsViewController.swift in Sources */,
 				3540911F20283CFA005C69A4 /* FilesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
