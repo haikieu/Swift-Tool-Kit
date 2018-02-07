@@ -8,6 +8,6 @@
       location = "group:ToolKit/ToolKit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/hk2314/Documents/Github/Toolkit/ToolKitUI/DevKitUI.xcodeproj">
+      location = "group:DevKitUI/DevKitUI.xcodeproj">
    </FileRef>
 </Workspace>

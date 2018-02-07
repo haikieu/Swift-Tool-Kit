@@ -30,6 +30,7 @@
 		35ED0035201E8D98007A941C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35ED0034201E8D98007A941C /* Assets.xcassets */; };
 		35ED0038201E8D98007A941C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35ED0036201E8D98007A941C /* LaunchScreen.storyboard */; };
 		35ED0043201E8D98007A941C /* TookKitDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED0042201E8D98007A941C /* TookKitDemoTests.swift */; };
+		462E2692202A84AD00332AE8 /* FloatingDevKitViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 462E2691202A84AD00332AE8 /* FloatingDevKitViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		35ED003E201E8D98007A941C /* TookKitDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TookKitDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35ED0042201E8D98007A941C /* TookKitDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TookKitDemoTests.swift; sourceTree = "<group>"; };
 		35ED0044201E8D98007A941C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		462E2691202A84AD00332AE8 /* FloatingDevKitViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FloatingDevKitViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 				35ED0034201E8D98007A941C /* Assets.xcassets */,
 				35ED0036201E8D98007A941C /* LaunchScreen.storyboard */,
 				35ED0039201E8D98007A941C /* Info.plist */,
+				462E2691202A84AD00332AE8 /* FloatingDevKitViewController.storyboard */,
 			);
 			path = TookKitDemo;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				462E2692202A84AD00332AE8 /* FloatingDevKitViewController.storyboard in Resources */,
 				35ED0038201E8D98007A941C /* LaunchScreen.storyboard in Resources */,
 				35ED0035201E8D98007A941C /* Assets.xcassets in Resources */,
 				35ED0033201E8D98007A941C /* Main.storyboard in Resources */,

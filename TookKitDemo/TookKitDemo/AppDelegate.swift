@@ -10,21 +10,68 @@ import UIKit
 import ToolKit
 
 
+class FloatingDevKitViewController : UIViewController {
+    
+}
+
+class DevKitWindow : UIWindow {
+
+    //    @available(*,unavailable,message: "Please don't use it by your own")
+    override init(frame: CGRect) {
+        
+        let preferredFrame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 65)
+        super.init(frame: preferredFrame)
+        
+        rootViewController = UIViewController()
+        rootViewController?.view.frame = self.bounds
+        rootViewController?.view.backgroundColor = UIColor.green.withAlphaComponent(0.5)
+    }
+    
+//    @available(*,unavailable,message: "Please don't use it by your own")
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    enum DockPosition {
+        case Top(offset:CGPoint), Right(offset:CGPoint), Bottom(offset:CGPoint), Left(offset:CGPoint)
+    }
+    
+    func dock(to position: DockPosition) {
+        switch position {
+        case .Top(let offset):
+            self.frame.origin.x = offset.x
+            self.frame.origin.y = offset.y
+        case .Bottom(let offset):
+            self.frame.origin.x = offset.x
+            self.frame.origin.y = UIScreen.main.bounds.height - self.bounds.height + offset.y
+        case .Left(let offset):
+            self.frame.origin.x = offset.x
+            self.frame.origin.y = UIApplication.shared.statusBarFrame.height + offset.y
+        case .Right(let offset):
+            self.frame.origin.x = UIScreen.main.bounds.width - self.bounds.width + offset.x
+            self.frame.origin.y = UIApplication.shared.statusBarFrame.height + offset.y
+        }
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var devkitWindow : DevKitWindow?
     var window: UIWindow?
-    let userDefault = UserDefaults.standard
+    
+    func activateDevKitWindow() {
+        devkitWindow = DevKitWindow(frame: UIScreen.main.bounds)
+        devkitWindow?.windowLevel = UIWindowLevelStatusBar
+        devkitWindow?.makeKeyAndVisible()
+        devkitWindow?.dock(to: DevKitWindow.DockPosition.Bottom(offset: CGPoint.init(x: 0, y: -45)))
+    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        UserDefaults.standard.startup()
-        UserDefaults.standard.onSynchorized { (_) in
-            print("synchronize")
-        }
-//        userDefault.startup()
-//        userDefault.onSynchorized(callback: block)
-//        userDefault.onReadTheKeyValue(callback: block1)
+        
+        
+        
         return true
     }
 
