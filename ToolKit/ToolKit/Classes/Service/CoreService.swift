@@ -10,35 +10,76 @@ import UIKit
 
 ///RequestId value must be unique
 public typealias RequestId = TimeInterval
-public typealias RequestCallback = ((_ success: Bool)->Void)
+public typealias Success = Bool
+public typealias RequestCallback = ((Success, Response?)->Void)
 fileprivate let defaultMaxConcurrent = 5
 
-open class StubService {
+open class CoreService {
     
     ///If you like to get a shared instance of a subclass of CoreService, then set the preferredClass
     public static var preferredClass : AnyClass?
     public static let shared = getPreferredInstance()
     
-    fileprivate private(set) var queue : ServiceOperationQueue = {
-        let queue = ServiceOperationQueue()
+    fileprivate private(set) var queue : RequestQueue = {
+        let queue = RequestQueue()
         queue.maxConcurrentOperationCount = defaultMaxConcurrent
         queue.qualityOfService = .background
         return queue
     }()
     
-    private init() {}
+    fileprivate init() {}
     deinit {
         queue.cancelAllOperations()
     }
-    private static func getPreferredInstance() -> StubService {
-        guard let preferredClass = self.preferredClass else { return StubService() }
-        return (class_createInstance(preferredClass, class_getInstanceSize(preferredClass)) as? StubService) ?? StubService()
+    private static func getPreferredInstance() -> CoreService {
+        guard let preferredClass = self.preferredClass else { return CoreService() }
+        return (class_createInstance(preferredClass, class_getInstanceSize(preferredClass)) as? CoreService) ?? CoreService()
     }
     
     open func async(_ url : URL, callback: RequestCallback? = nil) -> RequestId {
-        let operation = StubOperation(service: self, callback: callback)
+        let operation = Request(service: self, callback: callback)
         queue.addOperation(operation)
         return operation.timestamp
+    }
+    
+    ///If return nil, it means the requestId with its operation cannot be found
+    ///If return true, it means cancelling is success
+    ///If return false, it means canncelling is failure, maybe because the request has done
+    public func cancel(_ requestId: RequestId) -> Bool? {
+        //TODO: need to implement
+        return false
+    }
+    
+    fileprivate func generateTimeStamp() -> RequestId {
+        //Need to synchronize the method, to avoid generating timeStamps with same value
+        //TODO: cleanup objc_sync_enter & objc_sync_exit
+        objc_sync_enter(self)
+        let timeStamp = Date().timeIntervalSince1970
+        defer { objc_sync_exit(self) }
+        return timeStamp
+    }
+}
+
+open class Service : CoreService {
+    
+    //External can have a chance to observer delegate
+    public weak var externalSessionDelegate : URLSessionDelegate?
+    //delegate itself to URLSession
+    private var serviceSessionDelegate : ServiceURLSessionDelegate!
+    private var session : URLSession!
+    
+    override init() {
+        super.init()
+        
+        let config = URLSessionConfiguration.default
+        config.networkServiceType = .default
+        serviceSessionDelegate = ServiceURLSessionDelegate(self)
+        session = URLSession.init(configuration: config, delegate: serviceSessionDelegate, delegateQueue: nil)
+        
+    }
+    
+    deinit {
+        
     }
     
     open func get(_ url : URL, callback: RequestCallback? = nil) -> RequestId {
@@ -66,25 +107,37 @@ open class StubService {
         return async(url, callback: callback)
     }
     
-    ///If return nil, it means the requestId with its operation cannot be found
-    ///If return true, it means cancelling is success
-    ///If return false, it means canncelling is failure, maybe because the request has done
-    public func cancel(_ requestId: RequestId) -> Bool? {
+    open func download() {
         //TODO: need to implement
-        return false
     }
     
-    fileprivate func generateTimeStamp() -> RequestId {
-        //Need to synchronize the method, to avoid generating timeStamps with same value
-        //TODO: cleanup objc_sync_enter & objc_sync_exit
-        objc_sync_enter(self)
-        let timeStamp = Date().timeIntervalSince1970
-        objc_sync_exit(self)
-        return timeStamp
+    open func upload() {
+        //TODO: need to implement
     }
 }
 
-final class ServiceOperationQueue : OperationQueue {
+fileprivate class ServiceURLSessionDelegate : NSObject, URLSessionDelegate {
+    
+    private weak var service : Service?
+    
+    init(_ service: Service) {
+        self.service = service
+    }
+    
+    func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
+        service?.externalSessionDelegate?.urlSession?(session, didBecomeInvalidWithError: error)
+    }
+    
+    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        service?.externalSessionDelegate?.urlSession?(session, didReceive: challenge, completionHandler: completionHandler)
+    }
+    
+    public func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
+        service?.externalSessionDelegate?.urlSessionDidFinishEvents?(forBackgroundURLSession: session)
+    }
+}
+
+final class RequestQueue : OperationQueue {
     
     @available(*, unavailable, message: "This method is no longer available")
     override func addOperation(_ block: @escaping () -> Void) {
@@ -102,9 +155,9 @@ final class ServiceOperationQueue : OperationQueue {
 }
 
 fileprivate let defaultRetries = 1
-open class StubOperation : Operation {
+open class Request : Operation {
     
-    fileprivate private(set) weak var service : StubService?
+    fileprivate private(set) weak var service : CoreService?
     fileprivate let timestamp : RequestId
     fileprivate var beginTime : TimeInterval!
     fileprivate var endTime : TimeInterval!
@@ -123,7 +176,7 @@ open class StubOperation : Operation {
             } else {
                 completionBlock = { [weak self] in
                     self?.endTime = Date().timeIntervalSince1970
-                    self?.callback?(true)
+                    self?.callback?(true, nil)
                 }
             }
         }
@@ -155,7 +208,7 @@ open class StubOperation : Operation {
         fatalError("Do not use this method")
     }
     
-    public init(service: StubService, callback: RequestCallback?) {
+    public init(service: CoreService, callback: RequestCallback?) {
         self.timestamp = service.generateTimeStamp()
         self.service = service
         self.callback = callback
@@ -166,7 +219,7 @@ open class StubOperation : Operation {
     }
 }
 
-open class URLOperation : StubOperation {
+open class URLOperation : Request {
     open override func start() {
         guard _isCancelled == false else { return }
     }

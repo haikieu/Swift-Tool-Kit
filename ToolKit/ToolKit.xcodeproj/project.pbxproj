@@ -15,7 +15,8 @@
 		35ED0068201E8DD6007A941C /* ToolKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 35ED005A201E8DD6007A941C /* ToolKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35ED00AB201E8EC6007A941C /* MonitoredUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00AA201E8EC6007A941C /* MonitoredUserDefaults.swift */; };
 		35ED00AD201E8F04007A941C /* MonitoredNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00AC201E8F04007A941C /* MonitoredNotificationCenter.swift */; };
-		35ED00AF201E8F3B007A941C /* StubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00AE201E8F3B007A941C /* StubService.swift */; };
+		35ED00AF201E8F3B007A941C /* CoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED00AE201E8F3B007A941C /* CoreService.swift */; };
+		46926398203412DF00D5C5AD /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926397203412DF00D5C5AD /* Response.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +41,8 @@
 		35ED0067201E8DD6007A941C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35ED00AA201E8EC6007A941C /* MonitoredUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoredUserDefaults.swift; sourceTree = "<group>"; };
 		35ED00AC201E8F04007A941C /* MonitoredNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoredNotificationCenter.swift; sourceTree = "<group>"; };
-		35ED00AE201E8F3B007A941C /* StubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubService.swift; sourceTree = "<group>"; };
+		35ED00AE201E8F3B007A941C /* CoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreService.swift; sourceTree = "<group>"; };
+		46926397203412DF00D5C5AD /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,12 +122,21 @@
 		35ED00A9201E8EA1007A941C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				46926396203412BC00D5C5AD /* Service */,
 				350F7247202840BB00056D17 /* UI */,
 				35ED00AA201E8EC6007A941C /* MonitoredUserDefaults.swift */,
 				35ED00AC201E8F04007A941C /* MonitoredNotificationCenter.swift */,
-				35ED00AE201E8F3B007A941C /* StubService.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		46926396203412BC00D5C5AD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				35ED00AE201E8F3B007A941C /* CoreService.swift */,
+				46926397203412DF00D5C5AD /* Response.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,7 +255,8 @@
 				350F7249202840C500056D17 /* Toast.swift in Sources */,
 				350F724420283F7C00056D17 /* UIViewController.swift in Sources */,
 				35025E1E20284E26001B0807 /* UIView.swift in Sources */,
-				35ED00AF201E8F3B007A941C /* StubService.swift in Sources */,
+				35ED00AF201E8F3B007A941C /* CoreService.swift in Sources */,
+				46926398203412DF00D5C5AD /* Response.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
