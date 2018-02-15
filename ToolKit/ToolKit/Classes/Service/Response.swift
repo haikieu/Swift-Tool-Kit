@@ -32,6 +32,8 @@ open class Response {
     //MARK: - Body and its utilities
     public lazy var body : Any? = { return data }()
     public lazy var bodyStr : String? = { return nil }()
-    public lazy var bodyDic : String? = { return nil }()
+    public lazy var bodyDic : [String:Any]? = {
+        return nil
+    }()
     
 }
